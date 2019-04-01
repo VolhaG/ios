@@ -46,20 +46,20 @@
     dateComponents.minute = 12;
     dateComponents.second = 37;
     
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSCalendar *gregorianCalendar = [[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian] autorelease];
     return [gregorianCalendar dateFromComponents:dateComponents];
 }
 
 - (id<AssimilationInfo>)assimilationInfoForCurrentDateString:(NSString *)dateString {
-    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSCalendar *gregorianCalendar = [[[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian] autorelease];
     gregorianCalendar.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     
-    NSDateFormatter* dateFormatter = [NSDateFormatter new];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter new] autorelease];
     dateFormatter.dateFormat = @"yyyy:MM:dd@ss\\mm/HH";
     dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     NSDate* date = [dateFormatter dateFromString:dateString];
     
-    NSDateComponents* assimilationDateComponents = [NSDateComponents new];
+    NSDateComponents* assimilationDateComponents = [[NSDateComponents new] autorelease];
     assimilationDateComponents.year = 2208;
     assimilationDateComponents.month = 8;
     assimilationDateComponents.day = 14;
