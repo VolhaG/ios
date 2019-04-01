@@ -23,4 +23,8 @@
     return urls[shortenedURL];
 }
 
+-(void)dealloc {
+    [super dealloc];
+    [urls release];
+}
 @end

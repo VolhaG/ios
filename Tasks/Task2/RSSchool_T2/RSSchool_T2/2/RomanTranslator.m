@@ -57,7 +57,7 @@
     value = [self modifyRomanString:romanString origValue:value baseValue:4 romanDigit:@"IV"];
     value = [self modifyRomanString:romanString origValue:value baseValue:1 romanDigit:@"I"];
     
-    return romanString;
+    return [romanString autorelease];
 }
 
 - (NSString *)arabicFromRoman:(NSString *)romanString {
@@ -77,6 +77,11 @@
     }
     return [NSString stringWithFormat:@"%ld", result];
 
+}
+
+-(void)dealloc {
+    [super dealloc];
+    [_romanValues release];
 }
 
 @end

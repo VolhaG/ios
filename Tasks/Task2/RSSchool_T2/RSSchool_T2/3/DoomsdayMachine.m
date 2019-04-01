@@ -38,7 +38,7 @@
 
 -(NSDate*)assimilationDate {
 //    14 August 2208 03:13:37
-    NSDateComponents* dateComponents = [NSDateComponents new];
+    NSDateComponents* dateComponents = [[NSDateComponents new] autorelease];
     dateComponents.year = 2208;
     dateComponents.month = 8;
     dateComponents.day = 14;
@@ -75,7 +75,7 @@
                                                               toDate:assimilationDate
                                                              options:0];
 
-    return [[AssimilationInfo alloc] initDateComponents:dateComponents];
+    return [[[AssimilationInfo alloc] initDateComponents:dateComponents] autorelease];
     
 }
 

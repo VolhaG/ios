@@ -4,7 +4,7 @@
 
 -(NSDictionary*)getWords:(NSString*)text {
     NSArray* textComponents = [text.uppercaseString componentsSeparatedByString:@" "];
-    NSMutableDictionary* words = [NSMutableDictionary new];
+    NSMutableDictionary* words = [[NSMutableDictionary new] autorelease];
     for (NSString* word in textComponents) {
         NSNumber* wordCount = [words objectForKey:word];
         if (wordCount == nil) {

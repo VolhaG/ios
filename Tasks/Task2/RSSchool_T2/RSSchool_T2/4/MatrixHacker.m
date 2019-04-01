@@ -8,7 +8,7 @@ typedef id<Character>(^InjectionBlock)(NSString*);
 }
 
 - (void)injectCode:(id<Character> (^)(NSString *name))theBlock {
-    injectedBlock = theBlock;
+    injectedBlock = [theBlock retain];
 }
 
 - (NSArray<id<Character>> *)runCodeWithData:(NSArray<NSString *> *)names {
@@ -17,7 +17,12 @@ typedef id<Character>(^InjectionBlock)(NSString*);
         id<Character> character = injectedBlock(name);
         [res addObject:character];
     }
-    return res;
+    return [res autorelease];
+}
+
+-(void)dealloc {
+    [super dealloc];
+    [injectedBlock release];
 }
 
 @end
