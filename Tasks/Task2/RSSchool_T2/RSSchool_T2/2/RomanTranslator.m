@@ -28,7 +28,7 @@
 
 -(NSInteger)modifyRomanString:(NSMutableString*)romanString
                     origValue:(NSInteger)origValue
-                        value:(NSInteger)value
+                    baseValue:(NSInteger)value
                    romanDigit:(NSString*)romanDigit
 {
     NSInteger res = origValue;
@@ -43,19 +43,19 @@
     NSInteger value = arabicString.integerValue;
     
     NSMutableString* romanString = [NSMutableString new];
-    value = [self modifyRomanString:romanString origValue:value value:1000 romanDigit:@"M"];
-    value = [self modifyRomanString:romanString origValue:value value:900 romanDigit:@"CM"];
-    value = [self modifyRomanString:romanString origValue:value value:500 romanDigit:@"D"];
-    value = [self modifyRomanString:romanString origValue:value value:400 romanDigit:@"CD"];
-    value = [self modifyRomanString:romanString origValue:value value:100 romanDigit:@"C"];
-    value = [self modifyRomanString:romanString origValue:value value:90 romanDigit:@"XC"];
-    value = [self modifyRomanString:romanString origValue:value value:50 romanDigit:@"L"];
-    value = [self modifyRomanString:romanString origValue:value value:40 romanDigit:@"XL"];
-    value = [self modifyRomanString:romanString origValue:value value:10 romanDigit:@"X"];
-    value = [self modifyRomanString:romanString origValue:value value:9 romanDigit:@"IX"];
-    value = [self modifyRomanString:romanString origValue:value value:5 romanDigit:@"V"];
-    value = [self modifyRomanString:romanString origValue:value value:4 romanDigit:@"IV"];
-    value = [self modifyRomanString:romanString origValue:value value:1 romanDigit:@"I"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:1000 romanDigit:@"M"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:900 romanDigit:@"CM"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:500 romanDigit:@"D"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:400 romanDigit:@"CD"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:100 romanDigit:@"C"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:90 romanDigit:@"XC"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:50 romanDigit:@"L"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:40 romanDigit:@"XL"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:10 romanDigit:@"X"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:9 romanDigit:@"IX"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:5 romanDigit:@"V"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:4 romanDigit:@"IV"];
+    value = [self modifyRomanString:romanString origValue:value baseValue:1 romanDigit:@"I"];
     
     return romanString;
 }

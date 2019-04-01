@@ -52,10 +52,11 @@
 
 - (id<AssimilationInfo>)assimilationInfoForCurrentDateString:(NSString *)dateString {
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    gregorianCalendar.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     
     NSDateFormatter* dateFormatter = [NSDateFormatter new];
-    dateFormatter.dateFormat = @"yyyy:MM:dd@ss\\mm/hh";
-//    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    dateFormatter.dateFormat = @"yyyy:MM:dd@ss\\mm/HH";
+    dateFormatter.timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
     NSDate* date = [dateFormatter dateFromString:dateString];
     
     NSDateComponents* assimilationDateComponents = [NSDateComponents new];
@@ -63,12 +64,12 @@
     assimilationDateComponents.month = 8;
     assimilationDateComponents.day = 14;
     assimilationDateComponents.hour = 3;
-    assimilationDateComponents.minute = 12;
+    assimilationDateComponents.minute = 13;
     assimilationDateComponents.second = 37;
     NSDate* assimilationDate = [gregorianCalendar dateFromComponents:assimilationDateComponents];
     
 
-    NSDateComponents* dateComponents = [gregorianCalendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitWeekOfYear
+    NSDateComponents* dateComponents = [gregorianCalendar components:NSCalendarUnitYear|NSCalendarUnitMonth
                                         |NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond
                                                             fromDate:date
                                                               toDate:assimilationDate
