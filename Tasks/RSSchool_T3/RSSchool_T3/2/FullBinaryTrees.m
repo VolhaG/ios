@@ -20,7 +20,7 @@ typedef void(^TreeCompletedCallback)(void);
 @implementation FullBinaryTrees
 
 -(void)saveTree{
-    _allNodesForTree = [NSMutableArray new];
+    self.allNodesForTree = [[NSMutableArray new] autorelease];
     [self visitNode:self.rootNode forLevel:0];
     
     if (self.result.length > 0) {

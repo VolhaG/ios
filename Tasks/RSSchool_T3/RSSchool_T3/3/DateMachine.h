@@ -35,4 +35,8 @@
  09/04/2019 00:00
 */
 @interface DateMachine : UIViewController
+@property (retain, nonatomic) NSDate *resultDate;
+@property (retain, nonatomic) NSDate * startDate;
+@property (retain, nonatomic) NSNumber* step;
+@property (retain, nonatomic) NSArray * units;
 @end
